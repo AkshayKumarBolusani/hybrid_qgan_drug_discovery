@@ -1,0 +1,25 @@
+# Global project configuration
+project:
+  name: "Hybrid Quantum GAN Drug Discovery"
+  version: "1.0.0"
+  description: "End-to-end hybrid quantum GAN system for molecular generation and drug discovery"
+
+paths:
+  root: "."
+  data_raw: "data/raw"
+  data_interim: "data/interim"
+  data_processed: "data/processed"
+  logs: "logs"
+  experiments: "experiments"
+  checkpoints: "experiments/checkpoints"
+  reports: "experiments/reports"
+
+seed: 42
+device: "cpu"  # cpu for macOS Intel
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  save_to_file: true
+
+num_workers: 4

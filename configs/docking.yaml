@@ -1,0 +1,40 @@
+# Docking configuration
+engine: "vina"  # vina, diffdock
+
+vina:
+  executable: "vina"  # Path to AutoDock Vina executable
+  exhaustiveness: 8
+  num_modes: 9
+  energy_range: 3
+  cpu: 4
+  
+receptor:
+  default_path: null  # Set path to receptor PDBQT file
+  center_x: 0.0
+  center_y: 0.0
+  center_z: 0.0
+  size_x: 20.0
+  size_y: 20.0
+  size_z: 20.0
+
+ligand_preparation:
+  add_hydrogens: true
+  generate_3d: true
+  optimize_geometry: true
+  num_conformers: 10
+  
+output:
+  save_poses: true
+  max_poses: 5
+  output_format: "pdbqt"
+  
+scoring:
+  use_rescoring: false
+  normalize: true
+  score_threshold: -6.0  # kcal/mol
+  
+batch:
+  batch_size: 10
+  timeout_per_ligand: 300  # seconds
+  retry_failed: true
+  max_retries: 2

@@ -1,0 +1,54 @@
+# Data configuration
+datasets:
+  qm9:
+    enabled: true
+    source: "deepchem"
+    max_atoms: 9
+    max_samples: null  # null means all
+    
+  pc9:
+    enabled: false
+    source: "local"
+    path: "data/raw/pc9"
+    
+  esol:
+    enabled: true
+    source: "deepchem"
+    
+  freesolv:
+    enabled: true
+    source: "deepchem"
+    
+  tox21:
+    enabled: true
+    source: "deepchem"
+    
+  toxcast:
+    enabled: true
+    source: "deepchem"
+    
+  pcba:
+    enabled: false  # Large dataset, enable if needed
+    source: "deepchem"
+
+preprocessing:
+  max_atoms: 9
+  atom_types: ["C", "N", "O", "F", "S", "Cl", "Br", "P"]
+  bond_types: ["SINGLE", "DOUBLE", "TRIPLE", "AROMATIC"]
+  add_hydrogens: false
+  kekulize: true
+  
+splits:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+  stratify: false
+  
+smiles:
+  max_length: 100
+  vocab_file: "data/processed/vocab.json"
+  
+graph:
+  node_features: 8  # One-hot atom type
+  edge_features: 4  # One-hot bond type
+  max_nodes: 9

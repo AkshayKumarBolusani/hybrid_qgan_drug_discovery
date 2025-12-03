@@ -1,0 +1,40 @@
+# Quantum configuration
+backend:
+  framework: "pennylane"  # pennylane, qiskit
+  device: "default.qubit"  # PennyLane: default.qubit, lightning.qubit
+  shots: null  # null for exact simulation
+  
+vqc:
+  # Vanilla Variational Repetitive Quantum (VVRQ)
+  vvrq:
+    n_qubits: 8
+    n_layers: 4
+    rotation_gates: ["RX", "RY", "RZ"]
+    entangling_gate: "CNOT"
+    entangling_pattern: "linear"  # linear, circular, all
+    
+  # Exponential Fourier Quantum (EFQ)
+  efq:
+    n_qubits: 8
+    n_layers: 3
+    fourier_features: 16
+    rotation_gates: ["RX", "RY"]
+    data_reuploading: true
+
+# For Qiskit backend
+qiskit:
+  backend_name: "aer_simulator"
+  optimization_level: 1
+  resilience_level: 0
+  
+# Hybrid settings
+hybrid:
+  classical_preprocessing_dim: 64
+  quantum_output_dim: 8
+  classical_postprocessing_dim: 128
+  
+# Training settings
+training:
+  parameter_shift: true
+  learning_rate: 0.01
+  max_iterations: 100

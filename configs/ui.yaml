@@ -1,0 +1,46 @@
+# Streamlit UI configuration
+server:
+  port: 8501
+  address: "localhost"
+  
+theme:
+  primary_color: "#1f77b4"
+  background_color: "#ffffff"
+  secondary_background: "#f0f2f6"
+  text_color: "#262730"
+  font: "sans serif"
+
+pages:
+  overview:
+    show_metrics: true
+    show_recent_generations: true
+    
+  generator:
+    default_num_molecules: 10
+    max_molecules: 100
+    show_3d_viewer: true
+    
+  qsar_toxicity:
+    show_predictions: true
+    show_confidence: true
+    
+  docking:
+    show_3d_poses: true
+    show_energy_plot: true
+    
+  explainability:
+    show_shap_summary: true
+    show_feature_importance: true
+    max_features: 20
+    
+  reports:
+    default_format: "pdf"
+    include_plots: true
+
+caching:
+  enabled: true
+  ttl: 3600  # seconds
+  
+logging:
+  enabled: true
+  level: "INFO"

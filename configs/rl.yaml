@@ -1,0 +1,42 @@
+# Reinforcement Learning configuration
+algorithm: "ppo"  # ppo, reinforce
+
+reward_weights:
+  qed: 1.0
+  logp: 0.5
+  sa: 0.5
+  qsar_score: 1.0
+  novelty: 0.3
+  diversity: 0.3
+  docking_score: 1.5
+  toxicity_penalty: 2.0
+
+reward_normalization:
+  enabled: true
+  method: "zscore"  # zscore, minmax
+
+ppo:
+  clip_epsilon: 0.2
+  value_coef: 0.5
+  entropy_coef: 0.01
+  gamma: 0.99
+  gae_lambda: 0.95
+  n_steps: 128
+  n_epochs: 4
+  batch_size: 64
+  max_grad_norm: 0.5
+  
+reinforce:
+  gamma: 0.99
+  baseline: "mean"  # mean, moving_average, critic
+  
+training:
+  total_timesteps: 100000
+  eval_freq: 1000
+  save_freq: 5000
+  log_freq: 100
+  
+exploration:
+  initial_epsilon: 1.0
+  final_epsilon: 0.1
+  decay_steps: 50000

@@ -1,0 +1,54 @@
+# Toxicity/ADMET configuration
+model:
+  type: "multitask"  # single, multitask
+  architecture: "mlp"  # mlp, gnn, transformer
+  
+tasks:
+  toxicity:
+    - "NR-AR"
+    - "NR-AR-LBD"
+    - "NR-AhR"
+    - "NR-Aromatase"
+    - "NR-ER"
+    - "NR-ER-LBD"
+    - "NR-PPAR-gamma"
+    - "SR-ARE"
+    - "SR-ATAD5"
+    - "SR-HSE"
+    - "SR-MMP"
+    - "SR-p53"
+    
+  admet:
+    absorption: ["Caco2", "HIA", "Pgp"]
+    distribution: ["BBB", "PPB"]
+    metabolism: ["CYP2D6", "CYP3A4", "CYP2C9"]
+    excretion: ["Clearance", "HalfLife"]
+    toxicity: ["hERG", "AMES", "DILI", "Carcinogen"]
+
+features:
+  use_fingerprints: true
+  fingerprint_type: "morgan"
+  fingerprint_bits: 2048
+  use_descriptors: true
+  
+mlp:
+  shared_layers: [512, 256]
+  task_specific_layers: [128, 64]
+  dropout: 0.3
+  
+gnn:
+  hidden_dim: 128
+  num_layers: 3
+  dropout: 0.2
+
+training:
+  epochs: 100
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.0001
+  class_weights: "balanced"
+  early_stopping_patience: 15
+  
+evaluation:
+  metrics: ["auroc", "auprc", "accuracy", "f1"]
+  threshold: 0.5

@@ -1,0 +1,96 @@
+# Python version (comment – for your reference)
+# Recommended: Python >=3.10,<3.13
+
+########################
+# Core Python stack
+########################
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.2
+matplotlib==3.9.0
+seaborn==0.13.2
+tqdm==4.66.4
+psutil==5.9.8
+pyyaml==6.0.1
+joblib==1.4.2
+
+########################
+# Machine Learning / Deep Learning
+########################
+scikit-learn==1.5.1
+xgboost==2.1.0
+
+# PyTorch (CPU version – if you use GPU, follow https://pytorch.org/)
+torch==2.2.2
+torchvision==0.17.2
+torchaudio==2.2.2
+
+# Graph Neural Networks (MolGAN, QSAR, etc.)
+torch-geometric==2.5.3
+# Optional PyG dependencies (some may auto-install)
+
+
+########################
+# Chemistry / Cheminformatics
+########################
+rdkit-pypi==2022.9.5
+deepchem==2.8.0
+networkx==3.3
+openbabel-wheel==3.1.1.19
+meeko==0.4.0
+
+########################
+# Quantum ML
+########################
+pennylane==0.38.0
+pennylane-lightning==0.38.0
+qiskit==1.2.0
+qiskit-aer==0.15.1
+qiskit-ibm-runtime==0.29.0
+
+########################
+# GANs / Transformers utilities
+########################
+transformers==4.43.3
+tokenizers==0.19.1
+datasets==2.20.0
+accelerate==0.33.0
+
+########################
+# RL & Optimization
+########################
+stable-baselines3==2.3.2
+gymnasium==0.29.1
+optuna==3.6.1
+
+########################
+# Toxicity / ADMET / QSAR helpers
+########################
+imbalanced-learn==0.12.3
+lifelines==0.29.0
+
+########################
+# Explainability
+########################
+shap==0.44.1
+
+########################
+# Web / API / UI / Reports
+########################
+streamlit==1.37.0
+fastapi==0.112.0
+uvicorn[standard]==0.30.3
+plotly==5.23.0
+reportlab==4.2.0
+jinja2==3.1.4
+
+########################
+# Dev tools / utilities
+########################
+black==24.4.2
+isort==5.13.2
+flake8==7.1.0
+mypy==1.10.0
+python-dotenv==1.0.1
+ipykernel==6.29.5
+jupyterlab==4.2.3

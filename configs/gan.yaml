@@ -1,0 +1,49 @@
+# GAN configuration
+model:
+  type: "hq_molgan"  # hq_molgan, hq_cycle_molgan
+  
+generator:
+  latent_dim: 32
+  hidden_dims: [128, 256, 512]
+  output_dim: null  # Set based on graph size
+  dropout: 0.1
+  activation: "relu"
+  use_quantum: true
+  quantum_layer_position: "middle"  # early, middle, late
+  
+discriminator:
+  type: "transformer"  # molgan, transformer, gnn
+  hidden_dims: [512, 256, 128]
+  dropout: 0.1
+  num_heads: 4
+  num_layers: 2
+  
+cycle_component:
+  enabled: true
+  type: "quantum"  # classic, quantum
+  hidden_dim: 128
+  num_layers: 2
+  
+training:
+  epochs: 100
+  batch_size: 32
+  lr_generator: 0.0001
+  lr_discriminator: 0.0001
+  beta1: 0.5
+  beta2: 0.999
+  gradient_penalty: 10.0
+  n_critic: 5
+  
+  # Reward weights for RL fine-tuning
+  use_rl: true
+  rl_epochs: 50
+  rl_lr: 0.00001
+  
+checkpointing:
+  save_every: 10
+  keep_last: 5
+  
+logging:
+  log_every: 100
+  sample_every: 500
+  num_samples: 16
